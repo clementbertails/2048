@@ -1,20 +1,43 @@
-Ce projet a ete realise par Bertails Clement, Longuet Maxime, et Maurer Pierrick.
+# By Bertails Clément, Longuet Maxime and Maurer Pierrick
 
-Organisation :
-    - Dans le dossier bin se trouvent les executables ainsi que les DLL, et des licenses de l'extension
-       SDL2_image (extension de la librairie SDL2)
-    - Dans le dossier include se trouvent tout les fichiers a inclure pour le fonctionnement de SDL2
-       et SDL2_image
-    - Dans le dossier lib se trouvent les librairies SDL2 et SDL2_image
-    - Dans le dossier sources se trouvent tous les fichiers que nous avons codés, ainsi qu'un autre
-       dossier contenant toutes les images que nous utilisons
+## Dependencies
 
-Compilation (depuis la racine du projet) :
-    - Windows:  Compiler.bat   ou   gcc src/*.c -o bin/2048 -mwindows -I include -L lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image
-    - GNU/Linux MacOS  (normalement non supporté) :    gcc src/*.c $(sdl2-config --cflags --libs) -o bin/2048 -lSDl2_image
-    - Makefile
+- SDL2 librairie
+- SDL2_image librairie extension
 
-Utilisation :
-Pour lancer correctement le programme, il faut être dans la racine :
-Sous windows, un lanceur est disponible (Launcher.bat), sinon il peut être lancé avec la ligne
-de commande : bin\2048.exe
+## Compilation
+
+Go to the decompressed folder via a terminal. Execute "make".
+
+## Generate Doxygen
+
+If you want to generate the Doxygen, run "make docs". !! You will have to install the graphviz package to avoid errors when generating the doxygen !!
+
+## Read doxygen
+
+Open the doc/html/index.html page generated at the time of "make docs". The Doxyfile is also created with the above command.
+
+## Delete unnecessary files
+
+Run "make clean" : delete the bin folder containing the object files (*.o), the save folder containing a backup of the src folder, the doc folder containing the Doxygen, the last archive created by "make give", the src.old folder created by "make restore" and the executable.
+
+## Create save
+
+Run "make save": create the save folder if it doesn't exist and copy the src folder into it.
+
+## Revert to last save
+
+Run "make restore": restore the backup from the save folder.
+
+## Archive the program
+
+Run "make give": a ready-to-give archive is created.
+
+## Game mode
+
+There are two game modes that you can choose using the graphical interface:
+
+- 4x4 grid (difficult)
+- 8x8 gris (easy)
+
+Play with the arrows of the keyboard and enjoy !
