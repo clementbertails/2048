@@ -5,7 +5,7 @@
 Compiler :
   Windows
     >  gcc src/fichiers.c -o bin/prog -I include -L lib -lmingw32 -lSDL2main -lSDL2
-    >  gcc src/fichiers.c -o bin/prog -I include -L lib -lmingw32 -lSDL2main -lSDL2 -mwindows    (n'ouvre pas le terminal en plus, si ca faisait chier qq)
+    >  gcc src/fichiers.c -o bin/prog -I include -L lib -lmingw32 -lSDL2main -lSDL2 -mwindows    (n'ouvre pas le terminal en plus)
   GNU/Linux MacOS
     > gcc *.c $(sdl2-config --cflags --libs) -o prog
 */
@@ -16,8 +16,10 @@ int main (int argc, char** argv)
   // afficher menu
   // recup click
   //jeu(8);
-  SDL_Window *window = creationFenetre(window);
-  SDL_Renderer *renderer = creationRendu(window, renderer);
+  SDL_Window* window = NULL;
+  window = creationFenetre(window);
+  SDL_Renderer* renderer = NULL;
+  renderer = creationRendu(window, renderer);
   textures texture = initTextures(texture);
 
   menuPrincipal(window, renderer, texture);
